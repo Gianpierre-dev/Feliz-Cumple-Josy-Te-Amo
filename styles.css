@@ -468,7 +468,7 @@ body.en-sobre {
   --rot: -2.5deg;
   margin: 0;
   padding: 8px 8px 28px;
-  background: #fff;
+  background: var(--lila);
   box-shadow: 0 14px 26px -12px rgb(var(--sombra) / 0.5);
   rotate: var(--rot);
 }
@@ -882,7 +882,7 @@ body.en-sobre {
   height: auto;
   max-width: 94vw;
   max-height: 86vh;
-  border: 8px solid #fff;
+  border: 8px solid var(--lila);
   border-bottom-width: 30px;
   box-shadow: 0 30px 60px -20px rgb(0 0 0 / 0.6);
 }
