@@ -29,6 +29,10 @@
       simbolos: ["♥", "♥", "♡", "💗", "♥", "💖"],
       colores: ["#e06c9f", "#d94f8a", "#ff8fb8", "#c2185b"],
     },
+    corazonesVariados: {
+      simbolos: ["💜", "💖", "💗", "💓", "💞", "💕", "💘", "💝", "❤️", "🤍", "♥", "♡", "❥"],
+      colores: ["#e06c9f", "#8f74c2", "#ff8fb8", "#d94f8a", "#b39ddb", "#ffffff"],
+    },
     estrellas: {
       simbolos: ["✦", "★", "✧", "⭐", "✦", "🌟"],
       colores: ["#8f74c2", "#f2c14e", "#a98ad6", "#ffd166"],
@@ -97,7 +101,8 @@
     for (let indice = 0; indice < total; indice++) {
       const particula = document.createElement("span");
       particula.className = "particula";
-      particula.textContent = conjunto.simbolos[indice % conjunto.simbolos.length];
+      // Elección al azar para que cada estallido mezcle distinto.
+      particula.textContent = conjunto.simbolos[Math.floor(Math.random() * conjunto.simbolos.length)];
 
       const angulo = aleatorio(0, Math.PI * 2);
       const distancia = aleatorio(70, 200);
@@ -107,7 +112,7 @@
       particula.style.setProperty("--dy", `${Math.sin(angulo) * distancia - 70}px`);
       particula.style.setProperty("--r", `${aleatorio(-200, 200)}deg`);
       particula.style.setProperty("--ps", `${aleatorio(1.1, 2.4)}rem`);
-      particula.style.setProperty("--pc", conjunto.colores[indice % conjunto.colores.length]);
+      particula.style.setProperty("--pc", conjunto.colores[Math.floor(Math.random() * conjunto.colores.length)]);
 
       particula.addEventListener("animationend", () => particula.remove());
       capa.appendChild(particula);
@@ -233,7 +238,7 @@
   /* ---------- Visor de fotos ---------- */
 
   function corazonesEnVisor(x, y) {
-    estallarParticulas(x, y, 26, "corazones", visorParticulas);
+    estallarParticulas(x, y, 28, "corazonesVariados", visorParticulas);
   }
 
   function abrirVisor(boton) {
