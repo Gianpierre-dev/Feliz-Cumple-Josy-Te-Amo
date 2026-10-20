@@ -33,34 +33,15 @@
       simbolos: ["💜", "💖", "💗", "💓", "💞", "💕", "💘", "💝", "❤️", "🤍", "♥", "♡", "❥"],
       colores: ["#e06c9f", "#8f74c2", "#ff8fb8", "#d94f8a", "#b39ddb", "#ffffff"],
     },
-    cerezos: {
-      simbolos: ["🌸", "🌸", "🌸", "🌷", "✿", "❀"],
-      colores: ["#ff8fb8", "#e06c9f", "#f8bbd0"],
-    },
-    ramos: {
-      simbolos: ["💐", "💐", "🌷", "🌼", "❀", "💐"],
-      colores: ["#e06c9f", "#8f74c2", "#f2c14e"],
-    },
-    rosas: {
-      simbolos: ["🌹", "🌹", "🌹", "❤️", "♥", "🌹"],
-      colores: ["#c2185b", "#d94f8a", "#e53935"],
-    },
-    girasoles: {
-      simbolos: ["🌻", "🌻", "🌻", "🌼", "✦", "🌻"],
-      colores: ["#f2c14e", "#ffd166", "#f9a825"],
-    },
-    lunas: {
-      simbolos: ["🌕", "🌕", "🌙", "⭐", "✨", "✦", "🌕"],
-      colores: ["#ffd166", "#fff3b0", "#b39ddb"],
-    },
-    corazonesRojos: {
-      simbolos: ["♥️", "❤️", "♥", "💘", "♥️", "❣️"],
-      colores: ["#e53935", "#c2185b", "#d94f8a"],
-    },
-    hibiscos: {
-      simbolos: ["🌺", "🌺", "🌺", "🌼", "🍃", "✿"],
-      colores: ["#e06c9f", "#ff8fb8", "#66bb6a"],
-    },
+    // Temas de las fotos: un único emoji por foto, sin mezcla.
+    cerezos: { simbolos: ["🌸"], colores: ["#ff8fb8"] },
+    ramos: { simbolos: ["💐"], colores: ["#e06c9f"] },
+    rosas: { simbolos: ["🌹"], colores: ["#c2185b"] },
+    girasoles: { simbolos: ["🌻"], colores: ["#f2c14e"] },
+    lunas: { simbolos: ["🌕"], colores: ["#ffd166"] },
+    corazonesRojos: { simbolos: ["♥️"], colores: ["#e53935"] },
+    corazonMorado: { simbolos: ["💜"], colores: ["#8f74c2"] },
+    hibiscos: { simbolos: ["🌺"], colores: ["#e06c9f"] },
     estrellas: {
       simbolos: ["✦", "★", "✧", "⭐", "✦", "🌟"],
       colores: ["#8f74c2", "#f2c14e", "#a98ad6", "#ffd166"],
