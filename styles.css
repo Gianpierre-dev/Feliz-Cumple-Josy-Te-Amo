@@ -892,6 +892,14 @@ body.en-sobre {
   box-shadow: 0 30px 60px -20px rgb(0 0 0 / 0.6);
 }
 
+/* Dentro del dialog para que los corazones queden por encima de la top layer. */
+.visor__particulas {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
 .visor__cerrar {
   position: absolute;
   top: -16px;

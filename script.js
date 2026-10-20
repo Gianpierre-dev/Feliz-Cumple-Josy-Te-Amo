@@ -13,6 +13,7 @@
   const tortaHint = document.getElementById("torta-hint");
   const visor = document.getElementById("visor");
   const visorImagen = document.getElementById("visor-imagen");
+  const visorParticulas = document.getElementById("visor-particulas");
 
   const prefiereMenosMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const DEMORA_APERTURA_MS = 1700;
@@ -89,7 +90,7 @@
     }
   }
 
-  function estallarParticulas(x, y, cantidad, nombreConjunto = "mixto") {
+  function estallarParticulas(x, y, cantidad, nombreConjunto = "mixto", capa = capaParticulas) {
     const conjunto = CONJUNTOS_PARTICULAS[nombreConjunto] || CONJUNTOS_PARTICULAS.mixto;
     const total = prefiereMenosMovimiento ? Math.ceil(cantidad * 0.6) : cantidad;
 
@@ -109,7 +110,7 @@
       particula.style.setProperty("--pc", conjunto.colores[indice % conjunto.colores.length]);
 
       particula.addEventListener("animationend", () => particula.remove());
-      capaParticulas.appendChild(particula);
+      capa.appendChild(particula);
     }
   }
 
@@ -231,17 +232,28 @@
 
   /* ---------- Visor de fotos ---------- */
 
+  function corazonesEnVisor(x, y) {
+    estallarParticulas(x, y, 26, "corazones", visorParticulas);
+  }
+
   function abrirVisor(boton) {
     if (typeof visor.showModal !== "function") return;
     const imagen = boton.querySelector("img");
     visorImagen.src = imagen.currentSrc || imagen.src;
     visorImagen.alt = imagen.alt;
     visor.showModal();
+
+    // La foto se centra en la pantalla, así que los corazones salen del centro del viewport.
+    requestAnimationFrame(() => corazonesEnVisor(window.innerWidth / 2, window.innerHeight / 2));
   }
 
   function manejarClickVisor(evento) {
     if (evento.target === visor || evento.target.closest(".visor__cerrar")) {
       visor.close();
+      return;
+    }
+    if (evento.target === visorImagen) {
+      corazonesEnVisor(evento.clientX, evento.clientY);
     }
   }
 
