@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Para Josy</title>
+  <meta name="description" content="Una carta para Josy en su cumpleaños.">
+  <meta name="theme-color" content="#e6daf6">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://feliz-cumple-josy-te-amo.up.railway.app/">
+  <meta property="og:title" content="Para Josy 💌">
+  <meta property="og:description" content="Tienes una carta esperándote. Toca para abrirla.">
+  <meta property="og:image" content="https://feliz-cumple-josy-te-amo.up.railway.app/img/portada.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="fondo" aria-hidden="true">
+    <span class="mancha mancha--1"></span>
+    <span class="mancha mancha--2"></span>
+    <span class="mancha mancha--3"></span>
+    <span class="corazon" style="--x: 6%; --d: 0s; --t: 15s; --s: 1.1rem">♥</span>
+    <span class="corazon" style="--x: 18%; --d: -4s; --t: 19s; --s: .8rem">♥</span>
+    <span class="corazon" style="--x: 31%; --d: -9s; --t: 14s; --s: 1.4rem">♥</span>
+    <span class="corazon" style="--x: 44%; --d: -2s; --t: 21s; --s: .9rem">♥</span>
+    <span class="corazon" style="--x: 57%; --d: -12s; --t: 16s; --s: 1.2rem">♥</span>
+    <span class="corazon" style="--x: 69%; --d: -6s; --t: 18s; --s: 1rem">♥</span>
+    <span class="corazon" style="--x: 81%; --d: -15s; --t: 13s; --s: 1.5rem">♥</span>
+    <span class="corazon" style="--x: 92%; --d: -8s; --t: 20s; --s: .85rem">♥</span>
+  </div>
+
+  <main id="principal">
+    <section class="escena escena--sobre" id="escena-sobre">
+      <p class="escena__etiqueta">Un mensaje para</p>
+      <h1 class="escena__nombre">
+        Josy
+        <span class="destello destello--1" aria-hidden="true">✦</span>
+        <span class="destello destello--2" aria-hidden="true">✦</span>
+        <span class="destello destello--3" aria-hidden="true">✦</span>
+      </h1>
+
+      <button type="button" class="sobre" id="sobre" aria-label="Abrir la carta">
+        <span class="sobre__cuerpo"></span>
+        <span class="sobre__carta" aria-hidden="true">
+          <i style="width: 72%"></i>
+          <i style="width: 90%"></i>
+          <i style="width: 84%"></i>
+          <i style="width: 55%"></i>
+        </span>
+        <span class="sobre__frente"></span>
+        <span class="sobre__solapa"></span>
+        <span class="sobre__sello" id="sello">♥</span>
+        <span class="toque" aria-hidden="true">👆</span>
+      </button>
+
+      <p class="escena__hint">Toca aquí para abrir tu carta</p>
+    </section>
+
+    <section class="escena escena--carta" id="escena-carta" hidden>
+      <article class="papel">
+        <p class="papel__saludo" style="--i: 0">Para ti,</p>
+        <h2 class="papel__titulo" style="--i: 1">Josy</h2>
+
+        <p style="--i: 2">Quizás no esperabas que te envíe esto. Tengo claro que cambié mucho contigo; sé que antes te escribía cartas y era más detallista. Ya crecí, pero eso no quiere decir que no te quiera o que tenga miedo de admitir mis sentimientos por ti.</p>
+
+        <p style="--i: 3">Quizás no soy la hermana que te hubiese gustado tener; soy muy miedosa y, a la vez, introvertida en ocasiones importantes, como tú muy bien lo dices. Somos tan diferentes, pero en nuestras diferencias el amor que nos tenemos es incondicional.</p>
+
+        <p style="--i: 4">Hay tantas cosas que quisiera decirte y agradecerte; tengo claro que gracias a ti soy lo que soy. Quizás nunca hiciste las cosas esperando nada a cambio, pero yo te lo agradezco profundamente. Siempre velaste por mí; con mis caprichos y todo, estuviste siempre ahí, cuidando de nosotros y también de mamá.</p>
+
+        <p style="--i: 5">Aunque no somos una familia muy grande, agradezco lo que tenemos: somos poquitos, pero con un apoyo incondicional. Te queremos muchísimo y ojalá sean muchísimos años más unidos. Que nada nos separe nunca...</p>
+
+        <p class="papel__despedida" style="--i: 6">Todos te queremos y deseamos muchos años más.</p>
+        <p class="papel__firma" style="--i: 7">Mami, Jesús, Clevert y Nico</p>
+      </article>
+
+      <section class="deseos" aria-labelledby="deseos-titulo">
+        <h2 class="deseos__titulo" id="deseos-titulo">Nuestros deseos para ti</h2>
+        <ul class="deseos__lista">
+          <li class="deseo" data-revelar style="--i: 0"><span class="deseo__icono" aria-hidden="true">♥</span><p>Que nunca te falte una razón para sonreír.</p></li>
+          <li class="deseo" data-revelar style="--i: 1"><span class="deseo__icono" aria-hidden="true">✦</span><p>Que cada sueño que tienes encuentre su camino.</p></li>
+          <li class="deseo" data-revelar style="--i: 2"><span class="deseo__icono" aria-hidden="true">✿</span><p>Que la vida te devuelva todo el amor que das.</p></li>
+          <li class="deseo" data-revelar style="--i: 3"><span class="deseo__icono" aria-hidden="true">♡</span><p>Que sigas siendo nuestra fuerza y nuestro refugio.</p></li>
+          <li class="deseo" data-revelar style="--i: 4"><span class="deseo__icono" aria-hidden="true">☆</span><p>Que tu luz nunca se apague.</p></li>
+          <li class="deseo" data-revelar style="--i: 5"><span class="deseo__icono" aria-hidden="true">♥</span><p>Que cumplas muchísimos años más a nuestro lado.</p></li>
+        </ul>
+      </section>
+
+      <section class="recuerdos" aria-labelledby="recuerdos-titulo">
+        <h2 class="recuerdos__titulo" id="recuerdos-titulo">Nuestros recuerdos</h2>
+        <p class="recuerdos__hint">Toca una foto para verla en grande</p>
+        <div class="galeria">
+          <figure class="foto" data-revelar><button type="button" class="foto__boton"><img src="img/1.jpg" alt="Las dos hermanas en una presentación de danza" loading="lazy" decoding="async"></button></figure>
+          <figure class="foto" data-revelar><button type="button" class="foto__boton"><img src="img/2.jpg" alt="Collage de recuerdos de las hermanas" loading="lazy" decoding="async"></button></figure>
+          <figure class="foto foto--ancha" data-revelar><button type="button" class="foto__boton"><img src="img/5.jpg" alt="Toda la familia celebrando un cumpleaños" loading="lazy" decoding="async"></button></figure>
+          <figure class="foto" data-revelar><button type="button" class="foto__boton"><img src="img/3.jpg" alt="Mamá con la torta de cumpleaños" loading="lazy" decoding="async"></button></figure>
+          <figure class="foto" data-revelar><button type="button" class="foto__boton"><img src="img/4.jpg" alt="Mamá soplando las velas" loading="lazy" decoding="async"></button></figure>
+          <figure class="foto" data-revelar><button type="button" class="foto__boton"><img src="img/6.jpg" alt="Un beso al hermano" loading="lazy" decoding="async"></button></figure>
+          <figure class="foto" data-revelar><button type="button" class="foto__boton"><img src="img/8.jpg" alt="Mamá en un almuerzo en familia" loading="lazy" decoding="async"></button></figure>
+          <figure class="foto foto--ancha" data-revelar><button type="button" class="foto__boton"><img src="img/7.jpg" alt="Foto familiar de hace años" loading="lazy" decoding="async"></button></figure>
+        </div>
+      </section>
+
+      <section class="torta" aria-labelledby="torta-titulo" data-revelar>
+        <h2 class="torta__titulo" id="torta-titulo">Pide un deseo</h2>
+        <button type="button" class="pastel" id="pastel" aria-label="Soplar la velita">
+          <span class="pastel__vela">
+            <span class="pastel__llama"></span>
+            <span class="pastel__humo"></span>
+          </span>
+          <span class="pastel__capa pastel__capa--3"></span>
+          <span class="pastel__capa pastel__capa--2"></span>
+          <span class="pastel__capa pastel__capa--1"></span>
+          <span class="pastel__plato"></span>
+        </button>
+        <p class="torta__hint" id="torta-hint">Toca la torta para soplar la velita</p>
+      </section>
+
+      <footer class="cierre" data-revelar>
+        <p class="cierre__texto">Feliz cumpleaños,</p>
+        <p class="cierre__nombre">Josy</p>
+        <p class="cierre__corazon" aria-hidden="true">♥</p>
+      </footer>
+    </section>
+  </main>
+
+  <div class="globos" id="globos" aria-hidden="true"></div>
+  <div class="particulas" id="particulas" aria-hidden="true"></div>
+
+  <dialog class="visor" id="visor" aria-label="Foto en grande">
+    <button type="button" class="visor__cerrar" aria-label="Cerrar">×</button>
+    <img id="visor-imagen" alt="">
+  </dialog>
+
+  <button type="button" class="musica" id="musica" hidden aria-pressed="false" aria-label="Reproducir la música">
+    <span class="musica__ondas" aria-hidden="true"></span>
+    <svg class="musica__icono musica__icono--nota" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M9 3v10.55A4 4 0 1 0 11 17V7h5V3H9z"/>
+    </svg>
+    <svg class="musica__icono musica__icono--play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M8 5v14l11-7z"/>
+    </svg>
+  </button>
+
+  <audio id="audio" src="audio/Bertha%20Tillman%20-%20Oh%20My%20Angel.mp3" loop preload="auto"></audio>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
