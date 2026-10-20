@@ -19,8 +19,36 @@
   const DEMORA_SALIDA_SOBRE_MS = 700;
 
   const COLORES_GLOBOS = ["#cdb8ea", "#f7c9da", "#e697b6", "#b39ddb", "#fff0f6", "#dcc9f2"];
-  const COLORES_PARTICULAS = ["#e06c9f", "#8f74c2", "#ff8fb8", "#a98ad6", "#d94f8a"];
-  const SIMBOLOS_PARTICULAS = ["♥", "♥", "♥", "✦", "✿", "♡"];
+  const CONJUNTOS_PARTICULAS = {
+    mixto: {
+      simbolos: ["♥", "♥", "♥", "✦", "✿", "♡"],
+      colores: ["#e06c9f", "#8f74c2", "#ff8fb8", "#a98ad6", "#d94f8a"],
+    },
+    corazones: {
+      simbolos: ["♥", "♥", "♡", "💗", "♥", "💖"],
+      colores: ["#e06c9f", "#d94f8a", "#ff8fb8", "#c2185b"],
+    },
+    estrellas: {
+      simbolos: ["✦", "★", "✧", "⭐", "✦", "🌟"],
+      colores: ["#8f74c2", "#f2c14e", "#a98ad6", "#ffd166"],
+    },
+    flores: {
+      simbolos: ["✿", "❀", "🌸", "🌷", "✿", "🌼"],
+      colores: ["#e06c9f", "#ff8fb8", "#a98ad6", "#f06292"],
+    },
+    mariposas: {
+      simbolos: ["🦋", "🦋", "✧", "🦋", "♡"],
+      colores: ["#8f74c2", "#64b5f6", "#a98ad6"],
+    },
+    monos: {
+      simbolos: ["🎀", "🎀", "♡", "🎀", "✦"],
+      colores: ["#e06c9f", "#ff8fb8", "#d94f8a"],
+    },
+    confeti: {
+      simbolos: ["●", "■", "▲", "✨", "💜", "●", "🎉"],
+      colores: ["#e06c9f", "#8f74c2", "#f2c14e", "#64b5f6", "#ff8fb8"],
+    },
+  };
 
   let cartaAbierta = false;
   let velaApagada = false;
@@ -61,13 +89,14 @@
     }
   }
 
-  function estallarParticulas(x, y, cantidad) {
+  function estallarParticulas(x, y, cantidad, nombreConjunto = "mixto") {
+    const conjunto = CONJUNTOS_PARTICULAS[nombreConjunto] || CONJUNTOS_PARTICULAS.mixto;
     const total = prefiereMenosMovimiento ? Math.ceil(cantidad * 0.6) : cantidad;
 
     for (let indice = 0; indice < total; indice++) {
       const particula = document.createElement("span");
       particula.className = "particula";
-      particula.textContent = SIMBOLOS_PARTICULAS[indice % SIMBOLOS_PARTICULAS.length];
+      particula.textContent = conjunto.simbolos[indice % conjunto.simbolos.length];
 
       const angulo = aleatorio(0, Math.PI * 2);
       const distancia = aleatorio(70, 200);
@@ -77,7 +106,7 @@
       particula.style.setProperty("--dy", `${Math.sin(angulo) * distancia - 70}px`);
       particula.style.setProperty("--r", `${aleatorio(-200, 200)}deg`);
       particula.style.setProperty("--ps", `${aleatorio(1.1, 2.4)}rem`);
-      particula.style.setProperty("--pc", COLORES_PARTICULAS[indice % COLORES_PARTICULAS.length]);
+      particula.style.setProperty("--pc", conjunto.colores[indice % conjunto.colores.length]);
 
       particula.addEventListener("animationend", () => particula.remove());
       capaParticulas.appendChild(particula);
@@ -187,6 +216,19 @@
     tortaHint.classList.add("torta__hint--cumplido");
   }
 
+  /* ---------- Deseos ---------- */
+
+  function tocarDeseo(boton) {
+    const centro = centroDe(boton.querySelector(".deseo__icono"));
+    estallarParticulas(centro.x, centro.y, 24, boton.dataset.particulas);
+
+    boton.classList.remove("deseo__boton--pop");
+    void boton.offsetWidth; // Reinicia la animación si se toca varias veces seguidas.
+    boton.classList.add("deseo__boton--pop");
+
+    if (typeof navigator.vibrate === "function") navigator.vibrate(25);
+  }
+
   /* ---------- Visor de fotos ---------- */
 
   function abrirVisor(boton) {
@@ -214,5 +256,8 @@
   visor.addEventListener("click", manejarClickVisor);
   document.querySelectorAll(".foto__boton").forEach((boton) => {
     boton.addEventListener("click", () => abrirVisor(boton));
+  });
+  document.querySelectorAll(".deseo__boton").forEach((boton) => {
+    boton.addEventListener("click", () => tocarDeseo(boton));
   });
 })();
