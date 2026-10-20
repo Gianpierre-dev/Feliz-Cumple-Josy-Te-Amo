@@ -15,7 +15,7 @@
   const visorImagen = document.getElementById("visor-imagen");
 
   const prefiereMenosMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const DEMORA_APERTURA_MS = prefiereMenosMovimiento ? 300 : 1700;
+  const DEMORA_APERTURA_MS = 1700;
   const DEMORA_SALIDA_SOBRE_MS = 700;
 
   const COLORES_GLOBOS = ["#cdb8ea", "#f7c9da", "#e697b6", "#b39ddb", "#fff0f6", "#dcc9f2"];
@@ -37,9 +37,10 @@
   /* ---------- Globos y partículas ---------- */
 
   function lanzarGlobos(cantidad) {
-    if (prefiereMenosMovimiento) return;
+    // Con "reducir movimiento" activo se lanzan menos globos, pero el momento no desaparece.
+    const total = prefiereMenosMovimiento ? Math.ceil(cantidad / 2) : cantidad;
 
-    for (let indice = 0; indice < cantidad; indice++) {
+    for (let indice = 0; indice < total; indice++) {
       const globo = document.createElement("span");
       globo.className = "globo";
       globo.style.setProperty("--x", `${aleatorio(4, 92)}%`);
@@ -61,9 +62,9 @@
   }
 
   function estallarParticulas(x, y, cantidad) {
-    if (prefiereMenosMovimiento) return;
+    const total = prefiereMenosMovimiento ? Math.ceil(cantidad * 0.6) : cantidad;
 
-    for (let indice = 0; indice < cantidad; indice++) {
+    for (let indice = 0; indice < total; indice++) {
       const particula = document.createElement("span");
       particula.className = "particula";
       particula.textContent = SIMBOLOS_PARTICULAS[indice % SIMBOLOS_PARTICULAS.length];

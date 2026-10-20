@@ -1122,17 +1122,34 @@ body.en-sobre {
   }
 }
 
+/* Con "reducir movimiento" se apaga el movimiento continuo y decorativo.
+   Las animaciones breves que forman parte del contenido (sobre, globos, corazones, velita) se conservan. */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.2s !important;
+  .corazon {
+    display: none;
   }
 
-  .corazon,
-  .mancha {
-    display: none;
+  .mancha,
+  .toque,
+  .destello,
+  .escena__hint,
+  .torta__hint,
+  .cierre__corazon,
+  .musica__ondas,
+  .sobre__sello::after,
+  .globo__cuerpo {
+    animation: none;
+  }
+
+  .sobre {
+    animation: aparecer 0.6s 0.3s both;
+  }
+
+  .pastel__llama {
+    animation-duration: 2s;
+  }
+
+  .globo {
+    animation-timing-function: linear;
   }
 }
