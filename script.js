@@ -33,6 +33,34 @@
       simbolos: ["💜", "💖", "💗", "💓", "💞", "💕", "💘", "💝", "❤️", "🤍", "♥", "♡", "❥"],
       colores: ["#e06c9f", "#8f74c2", "#ff8fb8", "#d94f8a", "#b39ddb", "#ffffff"],
     },
+    cerezos: {
+      simbolos: ["🌸", "🌸", "🌸", "🌷", "✿", "❀"],
+      colores: ["#ff8fb8", "#e06c9f", "#f8bbd0"],
+    },
+    ramos: {
+      simbolos: ["💐", "💐", "🌷", "🌼", "❀", "💐"],
+      colores: ["#e06c9f", "#8f74c2", "#f2c14e"],
+    },
+    rosas: {
+      simbolos: ["🌹", "🌹", "🌹", "❤️", "♥", "🌹"],
+      colores: ["#c2185b", "#d94f8a", "#e53935"],
+    },
+    girasoles: {
+      simbolos: ["🌻", "🌻", "🌻", "🌼", "✦", "🌻"],
+      colores: ["#f2c14e", "#ffd166", "#f9a825"],
+    },
+    lunas: {
+      simbolos: ["🌕", "🌕", "🌙", "⭐", "✨", "✦", "🌕"],
+      colores: ["#ffd166", "#fff3b0", "#b39ddb"],
+    },
+    corazonesRojos: {
+      simbolos: ["♥️", "❤️", "♥", "💘", "♥️", "❣️"],
+      colores: ["#e53935", "#c2185b", "#d94f8a"],
+    },
+    hibiscos: {
+      simbolos: ["🌺", "🌺", "🌺", "🌼", "🍃", "✿"],
+      colores: ["#e06c9f", "#ff8fb8", "#66bb6a"],
+    },
     estrellas: {
       simbolos: ["✦", "★", "✧", "⭐", "✦", "🌟"],
       colores: ["#8f74c2", "#f2c14e", "#a98ad6", "#ffd166"],
@@ -237,8 +265,8 @@
 
   /* ---------- Visor de fotos ---------- */
 
-  function corazonesEnVisor(x, y) {
-    estallarParticulas(x, y, 28, "corazonesVariados", visorParticulas);
+  function particulasEnVisor(x, y) {
+    estallarParticulas(x, y, 28, visor.dataset.particulas || "corazonesVariados", visorParticulas);
   }
 
   function abrirVisor(boton) {
@@ -246,10 +274,12 @@
     const imagen = boton.querySelector("img");
     visorImagen.src = imagen.currentSrc || imagen.src;
     visorImagen.alt = imagen.alt;
+    // Cada foto tiene su propio tema de partículas.
+    visor.dataset.particulas = boton.dataset.particulas || "corazonesVariados";
     visor.showModal();
 
-    // La foto se centra en la pantalla, así que los corazones salen del centro del viewport.
-    requestAnimationFrame(() => corazonesEnVisor(window.innerWidth / 2, window.innerHeight / 2));
+    // La foto se centra en la pantalla, así que las partículas salen del centro del viewport.
+    requestAnimationFrame(() => particulasEnVisor(window.innerWidth / 2, window.innerHeight / 2));
   }
 
   function manejarClickVisor(evento) {
@@ -258,7 +288,7 @@
       return;
     }
     if (evento.target === visorImagen) {
-      corazonesEnVisor(evento.clientX, evento.clientY);
+      particulasEnVisor(evento.clientX, evento.clientY);
     }
   }
 
